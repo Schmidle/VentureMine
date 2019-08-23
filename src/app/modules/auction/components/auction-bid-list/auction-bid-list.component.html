@@ -9,7 +9,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let bid of bids.slice().reverse()" [class.my-bid]="bid.ownerId == currentUser._id">
+            <tr *ngFor="let bid of bids.slice().reverse()" [class.my-bid]="bid.userId == currentUser._id">
                 <td>{{bid.date | date: 'M/d/yy, h:mm:ss a'}}</td>
                 <td>{{bid.pps}}</td>
                 <td>{{bid.numShares}}</td>

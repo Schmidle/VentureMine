@@ -101,7 +101,7 @@ export class AuctionGraphComponent implements OnInit, OnChanges, AfterViewInit {
       .x(function (b) { return _this.chartProps.x(Number(b.pps)); })
       .y0(height)
       .y1(function (b) { return _this.chartProps.y2(Number(b.shareCount)) })
-      .curve(d3.curveMonotoneX)
+      // .curve(d3.curveMonotoneX)
 
 
     // Add the X Axis
@@ -117,11 +117,12 @@ export class AuctionGraphComponent implements OnInit, OnChanges, AfterViewInit {
 
     // Add the y2 Axis
     svg.append('g')
+    svg.append('g')
       .attr('transform', 'translate(' + width + ' ,0)')
       .attr('class', 'y2 axis')
       .call(yAxis2);
 
-    
+
 
 
     // Setting the required objects in chartProps so they could be used to update the chart
@@ -161,7 +162,7 @@ export class AuctionGraphComponent implements OnInit, OnChanges, AfterViewInit {
         return a.pps - b.pps;
       }))
       .attr('fill', 'none')
-      .attr('stroke', 'red')
+      //.attr('stroke', 'red')
       .attr('stroke-width', 1.5)
       .attr('id', 'bidLine')
       .attr('d', d3.line()
@@ -171,7 +172,7 @@ export class AuctionGraphComponent implements OnInit, OnChanges, AfterViewInit {
         .y(function (bid) {
           return _this.chartProps.y2(Number(bid.shareCount));
         })
-        .curve(d3.curveMonotoneX)
+       // .curve(d3.curveMonotoneX)
       );
 
       var data = [];
@@ -285,7 +286,7 @@ export class AuctionGraphComponent implements OnInit, OnChanges, AfterViewInit {
 
     //   data.forEach(function(d) {
     //     let c;
-    //     console.log(d);    
+    //     console.log(d);
     //     if(d[0].pps >= me.auction.currentStrikePrice){
     //       c = "green";
     //     }else{

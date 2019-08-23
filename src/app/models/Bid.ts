@@ -1,5 +1,5 @@
 export class Bid {
-    ownerId: String;
+    userId: String;
     auctionId: String;
     numShares: number;
     pps: number;
